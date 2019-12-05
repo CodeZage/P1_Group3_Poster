@@ -3,6 +3,7 @@ int pageCap = 50;
 String b = "Hello World";
 PShape empty;
 float margin = 4;
+int test = 2;
 
 Page[] pages = new Page[10];
 
