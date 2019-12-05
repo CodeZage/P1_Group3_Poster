@@ -66,6 +66,7 @@ class Object {
     }
     rect(posX, posY, sizeX, sizeY);
   }
+  
   boolean mouseOver() {
     if (mouseX > posX && mouseX < posX + sizeX && mouseY > posY && mouseY < posY + sizeY) {
       return true;
