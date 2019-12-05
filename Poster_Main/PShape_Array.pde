@@ -1,6 +1,8 @@
+PShape empty; //If no vector graphics are needed use this 
+
 PShape[] vectorGraphicsPage = new PShape[pages.length]; {
 
-  vectorGraphicsPage[0] = empty; //If no vector graphics are needed use this 
+  vectorGraphicsPage[0] = empty; 
   vectorGraphicsPage[1] = empty;
 
 } 
