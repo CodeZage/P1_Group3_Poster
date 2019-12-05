@@ -8,12 +8,14 @@ Object Box;
 void setup() {
   size(1000, 1000);
   surface.setResizable(true);
+  frameRate(60);
 }
 
 void draw() {
 
   stroke(1);
   fill(255);
+  
   for (int i = 0; i < pages.length; i++) {
     pages[i] = new Page(0, height*i, width-1, height, vectorGraphicsPage[i]); //Creates all objects in a sequential order for easy organisation.
   }
