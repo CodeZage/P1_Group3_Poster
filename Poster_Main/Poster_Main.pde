@@ -1,23 +1,26 @@
 int index = 0;
+int pageCap = 50;
 String b = "Hello World";
+PShape empty;
+float margin = 4;
+
+Page[] pages = new Page[10];
 
 void setup() {
 
-  size(500, 500);
+  size(1000, 1000);
   surface.setResizable(true);
 }
 
 void draw() {
 
-  background(230);
-  rectMode(CENTER);
-  fill(255);
-  rect(width/2, height/2, width-25, height-25);
-  fill(#2FE8E3);
-  rect(width /2 - 60, height /2 - 250 - index, 400, 400);
-  textSize(32);
-  fill(0);
-  text("dank", width/2, height/2 - index*2);
+  for (int i = 0; i < pages.length; i++) {
+    pages[i] = new Page(0, height*i, width-1, height, vectorGraphicsPage[i]); //Creates all objects in a sequential order for easy organisation. 
+  }
+
+  for (int i = 0; i < pages.length; i++) {
+    pages[i].drawPage();
+  }
 }
 
 void mouseWheel(MouseEvent event) {
@@ -25,7 +28,7 @@ void mouseWheel(MouseEvent event) {
   if (e < 0 && index > 0) {
     index -= 50;
   }
-  if (e > 0) {
+  if (e > 0 && index < height*(pages.length-1)) {
     index += 50;
   }
 }
