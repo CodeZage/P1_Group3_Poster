@@ -47,19 +47,20 @@ class Object {
     shape(vector, posX, posY, sizeX, sizeY);
   }
 
-  void drawText() {
+  void drawText(PFont font, color col) {
     textAlign(CENTER);
-    fill(0);
-    text(text, posX, posY, sizeX, sizeY);
+    fill(col);
+    textFont(font);
+    text(text, posX, posY + sizeY / 10, sizeX, sizeY);
   }
 
-  void drawImg() {
+  void drawImage() {
     image(image, posX, posY, sizeX, sizeY);
   }
 
-  void drawBox() {
+  void drawBox(color col) {
     if (mouseOver() == true) {
-      fill(20);
+      fill(col);
     }
     if (mouseOver() == true && mousePressed) {
       index = 0;
