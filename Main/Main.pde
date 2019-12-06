@@ -1,14 +1,18 @@
-int index = 0;
-int pageCap = 50;
+int index = 0; //Tracks current position of the viewport
 float margin = 4;
+
 
 Page[] pages = new Page[5];
 Object Box;
+Object RoomPageImage; 
 
 void setup() {
-  size(1000, 1000);
+  size(1600, 1000);
   surface.setResizable(true);
   frameRate(60);
+  
+  robotoBlack = createFont("Roboto-Black.ttf", 40); 
+  roomPageImage = loadImage("Images/rumbillede.jpg");
 }
 
 void draw() {
@@ -24,10 +28,17 @@ void draw() {
     pages[i].drawPage();
   }
   
-  Box = new Object(width / 2 - 50, height * pages.length - index - 100, 100, 30, button);
+  
+  Box = new Object(width / 2 - 125, height * 5 - index - 100, 250, 60, button);
+  RoomPageImage = new Object (margin, height + margin * 1 - index, width - margin * 2, height - margin * 2, roomPageImage); 
+  
+  
   fill(#FFC86F);
-  Box.drawBox();
-  Box.drawText();
+  
+  RoomPageImage.drawImage();
+  
+  Box.drawBox(#41DE98);
+  Box.drawText(robotoBlack, 0);
   Box.mouseOver();
   
     
