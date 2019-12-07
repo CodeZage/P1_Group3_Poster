@@ -43,11 +43,43 @@ class Object {
     text = t;
   }
 
+  boolean over;
+  boolean under;
+
+  void clickObject() {
+    println(mouseClick);
+    if (mouseOver() == true && mousePressed) {
+      mouseClick = true;
+    }
+  }
+
+
+  void scrollToPoint(float point) {
+    if (mouseClick == true) {
+      if (index > point && index > point + 50) {
+        index -= 200;
+      }
+      if (index > point && index < point + 50) {
+        index -= 1;
+      } else if (index == point) {
+        mouseClick = false;
+      }
+    }
+  }
+
+
   void drawObject() {
     shape(vector, posX, posY, sizeX, sizeY);
   }
 
-  void drawText(PFont font, color col) {
+  void drawTextLeft(PFont font, color col) {
+    textAlign(LEFT);
+    fill(col);
+    textFont(font);
+    text(text, posX, posY + sizeY / 10, sizeX, sizeY);
+  }
+
+  void drawTextCenter(PFont font, color col) {
     textAlign(CENTER);
     fill(col);
     textFont(font);
@@ -62,12 +94,9 @@ class Object {
     if (mouseOver() == true) {
       fill(col);
     }
-    if (mouseOver() == true && mousePressed) {
-      index = 0;
-    }
-    rect(posX, posY, sizeX, sizeY);
+    rect(posX, posY, sizeX, sizeY, 10);
   }
-  
+
   boolean mouseOver() {
     if (mouseX > posX && mouseX < posX + sizeX && mouseY > posY && mouseY < posY + sizeY) {
       return true;

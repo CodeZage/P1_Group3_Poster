@@ -22,7 +22,9 @@ class Page {
   void drawPage() {
     rect(posX, posY-index, sizeX, sizeY);
   }
-
+  
+ 
+  
   void drawVectorPage() {
     shape(vector, posX, posY, sizeX, sizeY);
   }

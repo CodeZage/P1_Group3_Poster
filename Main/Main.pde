@@ -1,17 +1,23 @@
 int index = 0; //Tracks current position of the viewport
 float margin = 4;
+boolean mouseClick = false;
 
 
 Page[] pages = new Page[5];
-Object Box;
+Object ResetButton;
 Object RoomPageImage; 
+Object RoomPageText;
 
 void setup() {
   size(1600, 1000);
-  surface.setResizable(true);
   frameRate(60);
-  
-  robotoBlack = createFont("Roboto-Black.ttf", 40); 
+  smooth(8);
+
+  robotoBlack20 = createFont("Roboto-Black.ttf", 25); 
+  robotoBlack40 = createFont("Roboto-Black.ttf", 40); 
+
+  robotoThin22 = createFont("Roboto-Thin.ttf", 22);
+
   roomPageImage = loadImage("Images/rumbillede.jpg");
 }
 
@@ -19,7 +25,7 @@ void draw() {
 
   stroke(1);
   fill(255);
-  
+
   for (int i = 0; i < pages.length; i++) {
     pages[i] = new Page(0, height*i, width-1, height, vectorGraphicsPage[i]); //Creates all objects in a sequential order for easy organisation.
   }
@@ -27,21 +33,44 @@ void draw() {
   for (int i = 0; i < pages.length; i++) {
     pages[i].drawPage();
   }
-  
-  
-  Box = new Object(width / 2 - 125, height * 5 - index - 100, 250, 60, button);
-  RoomPageImage = new Object (margin, height + margin * 1 - index, width - margin * 2, height - margin * 2, roomPageImage); 
-  
-  
+
+
+  ResetButton = new Object(width / 2 - 125, 
+    height * 5 - index - 100, 
+    250, 
+    60, 
+    button);
+
+  RoomPageImage = new Object(
+    width / 2 - margin * 2, 
+    height * 1.25 + margin * 2 - index, 
+    width / 2 - margin * 10, 
+    height / 2 - margin * 2, 
+    roomPageImage); 
+
+  RoomPageText = new Object(
+    margin * 10, 
+    height * 1.25 - index, 
+    width / 2 - 120, 
+    height / 2, 
+    imgText); 
+
   fill(#FFC86F);
-  
+
   RoomPageImage.drawImage();
+
+  ResetButton.drawBox(#41DE98);
+  ResetButton.drawTextCenter(robotoBlack40, 0);
+  ResetButton.mouseOver();
+  ResetButton.clickObject();
+  ResetButton.scrollToPoint(1000);
+
+  RoomPageText.drawTextLeft(robotoThin22, 0);
   
-  Box.drawBox(#41DE98);
-  Box.drawText(robotoBlack, 0);
-  Box.mouseOver();
-  
-    
+  println(index);
+
+
+
   //Draws scroll distance indicator to the right of the screen. 
   fill(#FFC86F);
   noStroke();
