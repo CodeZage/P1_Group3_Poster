@@ -59,36 +59,31 @@ void draw() {
     0, 
     0 - index, 
     width, 
-    height, 
-    frontPageImage);
+    height);
 
   FrontPageText1 = new Object(
     0, 
     180 - index, 
     width, 
-    height, 
-    frontPageText1);
+    height);
 
   FrontPageText2 = new Object(
     0, 
     380 - 20 - index, 
     width, 
-    height, 
-    frontPageText2);
+    height);
 
   FrontPageText3 = new Object(
     0, 
     height/2 + 60 - 40 - index, 
     width, 
-    height, 
-    frontPageText3);
+    height);
 
   FrontPageBox = new Object(
     0, 
     280 - index, 
     width, 
-    height/2, 
-    nullString);
+    height/2);
 
   //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -96,44 +91,40 @@ void draw() {
     0, 
     height - index, 
     width, 
-    height, 
-    vrPageImage);
+    height);
 
   RoomPageText = new Object(
     margin * 10, 
     height * 3.25 - index, 
     width / 2 - 120, 
-    height / 2, 
-    imgText); 
+    height / 2); 
 
   RoomPageImage = new Object(
     width / 2 - margin * 2, 
     height * 3.25 + margin * 2 - index, 
     width / 2 - margin * 10, 
-    height / 2 - margin * 2, 
-    roomPageImage); 
+    height / 2 - margin * 2); 
 
   ResetButton = new Object(width / 2 - 125, 
     height * 5 - index - 100, 
     250, 
-    60, 
-    button);
+    60);
 
 
   //Page 1 ----------------------------------------------------------------------------------------------------------------------------------
 
-  FrontPageImage.drawImage();
+  FrontPageImage.drawImage(frontPageImage);
 
   FrontPageBox.drawBox(0, 0, 70, 0);
 
-  FrontPageText1.drawTextCenter(robotoLight180, 230);
-  FrontPageText2.drawTextCenter(robotoLight180, 230);
-  FrontPageText3.drawTextCenter(robotoLight80, 230);
+  FrontPageText1.drawTextCenter(frontPageText1, robotoLight180, 230);
+  FrontPageText2.drawTextCenter(frontPageText2, robotoLight180, 230);
+  FrontPageText3.drawTextCenter(frontPageText3, robotoLight80, 230);
 
 
   //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
 
-  VrPageImage.drawImage();
+  VrPageImage.drawImage(vrPageImage);
 
   //Page 3 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -141,14 +132,14 @@ void draw() {
   //Page 4 ----------------------------------------------------------------------------------------------------------------------------------
 
 
-  RoomPageText.drawTextLeft(robotoThin22, 0);
+  RoomPageText.drawTextLeft(imgText, robotoThin22, 0);
 
-  RoomPageImage.drawImage();
+  RoomPageImage.drawImage(roomPageImage);
 
   //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
 
   ResetButton.drawBox(#41DE98, #FFC86F, 100, 10);
-  ResetButton.drawTextCenter(robotoBlack40, 0);
+  ResetButton.drawTextCenter(button, robotoBlack40, 0);
   ResetButton.mouseOver();
   ResetButton.clickObject();
   ResetButton.scrollToPoint(1080);
