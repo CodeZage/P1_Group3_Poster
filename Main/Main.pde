@@ -3,12 +3,18 @@ float margin = 4;
 boolean mouseClick = false;
 
 Page[] pages = new Page[5];
-//Button Objects
+//Button/Box Objects
+Object FrontPageBox;
 Object ResetButton;
 //Image Objects
 Object FrontPageImage;
+Object VrPageImage;
 Object RoomPageImage; 
 //Text Objects
+Object FrontPageText1; 
+Object FrontPageText2; 
+Object FrontPageText3; 
+Object VrPageTextBox; 
 Object RoomPageText;
 
 void setup() {
@@ -18,8 +24,19 @@ void setup() {
 
   robotoBlack20 = createFont("Roboto-Black.ttf", 25); 
   robotoBlack40 = createFont("Roboto-Black.ttf", 40); 
+  robotoBlack80 = createFont("Roboto-Black.ttf", 80);
+  robotoBlack180 = createFont("Roboto-Black.ttf", 180);
 
   robotoThin22 = createFont("Roboto-Thin.ttf", 22);
+  robotoThin40 = createFont("Roboto-Thin.ttf", 40);
+  robotoThin80 = createFont("Roboto-Thin.ttf", 80);
+  robotoThin180 = createFont("Roboto-Thin.ttf", 180);
+
+  robotoLight22 = createFont("Roboto-Light.ttf", 22);
+  robotoLight40 = createFont("Roboto-Light.ttf", 40);
+  robotoLight80 = createFont("Roboto-Light.ttf", 80);
+  robotoLight180 = createFont("Roboto-Light.ttf", 180);
+
 
   frontPageImage = loadImage("Images/frontImage.png");
   vrPageImage = loadImage("Images/vrImage.png");
@@ -36,6 +53,8 @@ void draw() {
     pages[i].drawPage();
   }
 
+  //Page 1 ----------------------------------------------------------------------------------------------------------------------------------
+
   FrontPageImage = new Object(
     0, 
     0 - index, 
@@ -43,16 +62,53 @@ void draw() {
     height, 
     frontPageImage);
 
+  FrontPageText1 = new Object(
+    0, 
+    180 - index, 
+    width, 
+    height, 
+    frontPageText1);
+
+  FrontPageText2 = new Object(
+    0, 
+    380 - 20 - index, 
+    width, 
+    height, 
+    frontPageText2);
+
+  FrontPageText3 = new Object(
+    0, 
+    height/2 + 60 - 40 - index, 
+    width, 
+    height, 
+    frontPageText3);
+
+  FrontPageBox = new Object(
+    0, 
+    280 - index, 
+    width, 
+    height/2, 
+    nullString);
+
+  //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
+
+  VrPageImage = new Object(
+    0, 
+    height - index, 
+    width, 
+    height, 
+    vrPageImage);
+
   RoomPageText = new Object(
     margin * 10, 
-    height * 1.25 - index, 
+    height * 3.25 - index, 
     width / 2 - 120, 
     height / 2, 
     imgText); 
 
   RoomPageImage = new Object(
     width / 2 - margin * 2, 
-    height * 1.25 + margin * 2 - index, 
+    height * 3.25 + margin * 2 - index, 
     width / 2 - margin * 10, 
     height / 2 - margin * 2, 
     roomPageImage); 
@@ -64,25 +120,40 @@ void draw() {
     button);
 
 
+  //Page 1 ----------------------------------------------------------------------------------------------------------------------------------
 
-  fill(#FFC86F);
   FrontPageImage.drawImage();
+
+  FrontPageBox.drawBox(0, 0, 70, 0);
+
+  FrontPageText1.drawTextCenter(robotoLight180, 230);
+  FrontPageText2.drawTextCenter(robotoLight180, 230);
+  FrontPageText3.drawTextCenter(robotoLight80, 230);
+
+
+  //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
+
+  VrPageImage.drawImage();
+
+  //Page 3 ----------------------------------------------------------------------------------------------------------------------------------
+
+
+  //Page 4 ----------------------------------------------------------------------------------------------------------------------------------
+
 
   RoomPageText.drawTextLeft(robotoThin22, 0);
 
   RoomPageImage.drawImage();
 
+  //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
 
-  ResetButton.drawBox(#41DE98, #FFC86F);
+  ResetButton.drawBox(#41DE98, #FFC86F, 100, 10);
   ResetButton.drawTextCenter(robotoBlack40, 0);
   ResetButton.mouseOver();
   ResetButton.clickObject();
   ResetButton.scrollToPoint(1080);
 
-
   println(index);
-
-
 
   //Draws scroll distance indicator to the right of the screen. 
   fill(#FFC86F);

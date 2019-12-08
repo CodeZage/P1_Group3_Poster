@@ -90,14 +90,15 @@ class Object {
     image(image, posX, posY, sizeX, sizeY);
   }
 
-  void drawBox(color selectionCol, color baseCol) {
+  void drawBox(color selectionCol, color baseCol, float alpha, float curve) {
     if (mouseOver() == true) {
-      fill(selectionCol);
+      fill(selectionCol, alpha);
     }
     if (mouseOver() == false) {
-      fill(baseCol);
+      fill(baseCol, alpha);
     }
-    rect(posX, posY, sizeX, sizeY, 10);
+    noStroke();
+    rect(posX, posY, sizeX, sizeY, curve);
   }
 
   boolean mouseOver() {
