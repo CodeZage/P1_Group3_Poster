@@ -1,3 +1,3 @@
+PImage frontPageImage;
 PImage roomPageImage; 
 PImage vrPageImage;
-PImage frontPageImage;
