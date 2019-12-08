@@ -56,10 +56,10 @@ class Object {
 
   void scrollToPoint(float point) {
     if (mouseClick == true) {
-      if (index > point && index > point + 54) {
-        index -= 216;
+      if (index > point && index > point + 50) {
+        index -= 200;
       }
-      if (index > point && index < point + 54) {
+      if (index > point && index < point + 50) {
         index -= 1;
       } else if (index == point) {
         mouseClick = false;
@@ -90,12 +90,9 @@ class Object {
     image(image, posX, posY, sizeX, sizeY);
   }
 
-  void drawBox(color selectionCol, color baseCol) {
+  void drawBox(color col) {
     if (mouseOver() == true) {
-      fill(selectionCol);
-    }
-    if (mouseOver() == false) {
-      fill(baseCol);
+      fill(col);
     }
     rect(posX, posY, sizeX, sizeY, 10);
   }

@@ -2,17 +2,14 @@ int index = 0; //Tracks current position of the viewport
 float margin = 4;
 boolean mouseClick = false;
 
+
 Page[] pages = new Page[5];
-//Button Objects
 Object ResetButton;
-//Image Objects
-Object FrontPageImage;
 Object RoomPageImage; 
-//Text Objects
 Object RoomPageText;
 
 void setup() {
-  size(1920, 1080);
+  size(1600, 1000);
   frameRate(60);
   smooth(8);
 
@@ -21,34 +18,28 @@ void setup() {
 
   robotoThin22 = createFont("Roboto-Thin.ttf", 22);
 
-  frontPageImage = loadImage("Images/frontImage.png");
-  vrPageImage = loadImage("Images/vrImage.png");
-  roomPageImage = loadImage("Images/roomImage.jpg");
+  roomPageImage = loadImage("Images/rumbillede.jpg");
 }
 
 void draw() {
 
   stroke(1);
-  fill(245);
+  fill(255);
 
   for (int i = 0; i < pages.length; i++) {
     pages[i] = new Page(0, height*i, width-1, height, vectorGraphicsPage[i]); //Creates all objects in a sequential order for easy organisation.
+  }
+
+  for (int i = 0; i < pages.length; i++) {
     pages[i].drawPage();
   }
 
-  FrontPageImage = new Object(
-    0, 
-    0 - index, 
-    width, 
-    height, 
-    frontPageImage);
 
-  RoomPageText = new Object(
-    margin * 10, 
-    height * 1.25 - index, 
-    width / 2 - 120, 
-    height / 2, 
-    imgText); 
+  ResetButton = new Object(width / 2 - 125, 
+    height * 5 - index - 100, 
+    250, 
+    60, 
+    button);
 
   RoomPageImage = new Object(
     width / 2 - margin * 2, 
@@ -57,29 +48,25 @@ void draw() {
     height / 2 - margin * 2, 
     roomPageImage); 
 
-  ResetButton = new Object(width / 2 - 125, 
-    height * 5 - index - 100, 
-    250, 
-    60, 
-    button);
-
-
+  RoomPageText = new Object(
+    margin * 10, 
+    height * 1.25 - index, 
+    width / 2 - 120, 
+    height / 2, 
+    imgText); 
 
   fill(#FFC86F);
-  FrontPageImage.drawImage();
-
-  RoomPageText.drawTextLeft(robotoThin22, 0);
 
   RoomPageImage.drawImage();
 
-
-  ResetButton.drawBox(#41DE98, #FFC86F);
+  ResetButton.drawBox(#41DE98);
   ResetButton.drawTextCenter(robotoBlack40, 0);
   ResetButton.mouseOver();
   ResetButton.clickObject();
-  ResetButton.scrollToPoint(1080);
+  ResetButton.scrollToPoint(1000);
 
-
+  RoomPageText.drawTextLeft(robotoThin22, 0);
+  
   println(index);
 
 
@@ -93,9 +80,9 @@ void draw() {
 void mouseWheel(MouseEvent event) {
   float e = event.getCount();
   if (e < 0 && index > 0) {
-    index -= 54;
+    index -= 50;
   }
   if (e > 0 && index < height*(pages.length-1)) {
-    index += 54;
+    index += 50;
   }
 }
