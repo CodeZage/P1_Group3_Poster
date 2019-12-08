@@ -8,6 +8,14 @@ class Object {
   PShape vector;
   PImage image;
   String text;
+  
+  Object(float x1, float y1, float x2, float y2) {
+    posX = x1;
+    posY = y1;
+    sizeX = x2;
+    sizeY = y2;
+    vector = v;
+  }
 
   Object(float x1, float y1, float x2, float y2, PShape v) {
     posX = x1;
