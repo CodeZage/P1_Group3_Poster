@@ -17,6 +17,7 @@ PFont robotoLight80;
 PFont robotoLight180;
 
 PFont robotoLightItalic40;
+PFont robotoLightItalic50;
 PFont robotoLightItalic80;
 
 PFont robotoBlackItalic;
@@ -79,6 +80,8 @@ String[] page5Bottom = new String[3];
   page5Bottom[2] = "Room-scale";
 }
 
+String page5Title = "Information om VR";
+
 String[] page5TopText = new String[3]; 
 {
 
@@ -94,5 +97,24 @@ String[] page5BottomText = new String[3];
   page5BottomText[1] = "VR giver muligheden for at lære fra scenarier der aldrig ville være mulige eller sikrer at frestille i virkeligheden. Det skaber muligheder for at teste brugernes handlingsevner i stress-situation såsom krig, ulykker, naturkatastrofer og lign.";
   page5BottomText[2] = "Room-scale VR tillader brugeren at fysiske bevæge sig i et rum og få deres bevægelser reflekteret inde i en virtuel verden. Disse systemer tillader for en lang højere grad af indlevelse.";
 }
+
+String page6Title = "Information om førstehjælp";
+
+String[] page6Titles = new String[3]; 
+{
+
+  page6Titles[0] = "CPR";
+  page6Titles[1] = "Kontrol";
+  page6Titles[2] = "Procedurer";
+}
+
+String[] page6Text = new String[3]; 
+{
+
+  page6Text[0] = "En af de mest vigtige ting man lærer, er at kunne udøve kunstigt åndedræt, til en person i nød. Dette er gjort ved at sørge for at personen har fri luftvej, så ånder man ind i personens mund 2 gange og går i gang med hjertemassage, med en dybde på 5-6 centimeter. Dette gør man skiftevis indtil personen kommer til bevidsthed igen eller der kommer professionel hjælp.";
+  page6Text[1] = "I undervisningen lærer du dig at tage kontrol over situationen og hvad du kan gøre for at sikre dig omgivelserne omkring dig. Du har eksempelvis udstyr i din bil du kan bruge for at sikre området. Dette kan være den orange selvlysende trekant, som skal placeres 30 meter bag ved bilen, så forbikørende er opmærksomme på ulykken.";
+  page6Text[2] = "Der bliver lært en liste af trin du skal udføre på den tilskadekomne og hvordan man skal tilgå sig situationen, samt omgivelserne. Din viden om denne procedure bliver testet i en multiple choice test, i slutningen af dit undervisningsforløb.";
+}
+
 
 String button = "Tilbage";

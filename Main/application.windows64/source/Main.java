@@ -21,7 +21,7 @@ boolean mouseClick = false;
 int highlightColor = 0xff1FCCFF;
 int selectionColor = 0xff0A9AC4;
 
-Page[] pages = new Page[5];
+Page[] pages = new Page[6];
 
 //Button/Box/Line Objects
 Object FrontPageBox;
@@ -55,6 +55,7 @@ Object RoomPageSubTitle;
 Object LineHorizontalRoom;
 Object RoomPageText;
 
+Object Page5Title;
 Object[] Page5Top = new Object[3];
 Object[] Page5TopText = new Object[3];
 Object[] LineHorizontalTop = new Object[3];
@@ -62,6 +63,13 @@ Object[] LineHorizontalTop = new Object[3];
 Object[] Page5Bottom = new Object[3];
 Object[] Page5BottomText = new Object[3];
 Object[] LineHorizontalBottom = new Object[3];
+
+Object Page6Title;
+Object[] Page6Top = new Object[3];
+Object[] Page6TopText = new Object[3];
+Object[] LineHorizontalTop6 = new Object[3];
+
+
 
 
 public void setup() {
@@ -88,6 +96,7 @@ public void setup() {
   robotoLight180 = createFont("Roboto-Light.ttf", 180);
 
   robotoLightItalic40 = createFont("Roboto-LightItalic.ttf", 40);
+  robotoLightItalic50 = createFont("Roboto-LightItalic.ttf", 50);
   robotoLightItalic80 = createFont("Roboto-LightItalic.ttf", 80);
 
 
@@ -278,8 +287,21 @@ public void draw() {
   RoomPageImage.drawImage(roomPageImage);
 
   //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
+  
+  Page5Title = new Object(
+    width/2 - 20, 
+    height * 4.08f - index, 
+    800, 
+    300);
+
+  rectMode(CENTER);
+  Page5Title.drawTextCenter(page5Title, robotoLightItalic50, 40);
+  rectMode(CORNER);
+
+
   float page5Parralax = 1; //Set to 1 to disable parralax 
   int page5Offset = 0; //If parralax is disabled set to 0
+
 
   for (int i = 0; i < Page5Top.length; i++) {
     Page5Top[i] = new Object(100 + (i * 600), height * 4.04f - index * page5Parralax + page5Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
@@ -295,7 +317,7 @@ public void draw() {
 
   for (int i = 0; i < Page5Bottom.length; i++) {
     Page5Bottom[i] = new Object(100 + (i * 600), height * 4.45f - index * page5Parralax + page5Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
-    Page5BottomText[i] = new Object(100+ (i * 600), height * 4.52f - index * page5Parralax + page5Offset, 450, 350);
+    Page5BottomText[i] = new Object(100 + (i * 600), height * 4.52f - index * page5Parralax + page5Offset, 450, 350);
     LineHorizontalBottom[i] = new Object(175 + (i * 600), height * 4.52f - index * page5Parralax + page5Offset, 300, 1);
 
     LineHorizontalBottom[i].drawBox(20, 20, 255, 0);
@@ -305,9 +327,38 @@ public void draw() {
     //Page5BottomText[i].drawBox(highlightColor, highlightColor, 100, 10);
   } 
 
+  //Page 6 ----------------------------------------------------------------------------------------------------------------------------------
+
+  Page6Title = new Object(
+    width/2 - 20, 
+    height * 5.14f - index, 
+    800, 
+    300);
+
+  rectMode(CENTER);
+  Page6Title.drawTextCenter(page6Title, robotoLightItalic50, 40);
+  rectMode(CORNER);
+
+
+  float page6Parralax = 1; //Set to 1 to disable parralax 
+  int page6Offset = 0; //If parralax is disabled set to 0
+
+  for (int i = 0; i < Page6Top.length; i++) {
+    Page6Top[i] = new Object(100 + (i * 600), height * 5.1f - index * page6Parralax + page6Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
+    Page6TopText[i] = new Object(100+ (i * 600), height * 5.17f - index * page6Parralax + page6Offset, 450, 600);
+    LineHorizontalTop6[i] = new Object(175 + (i * 600), height * 5.17f - index * page6Parralax + page6Offset, 300, 1);
+
+    Page6Top[i].drawTextCenter(page6Titles[i], robotoLight50, selectionColor);
+    Page6TopText[i].drawTextLeft(page6Text[i], robotoLight28, 0);
+    LineHorizontalTop6[i].drawBox(20, 20, 255, 0);
+    //Page5Top[i].drawBox(highlightColor, highlightColor, 100, 10);
+    //Page5TopText[i].drawBox(highlightColor, highlightColor, 100, 10);
+  } 
+
+
   ResetButton = new Object(
     width / 2 - 125, 
-    height * 5 - index - 70, 
+    height * 6 - index - 180, 
     250, 
     60);
 
@@ -466,6 +517,7 @@ PFont robotoLight80;
 PFont robotoLight180;
 
 PFont robotoLightItalic40;
+PFont robotoLightItalic50;
 PFont robotoLightItalic80;
 
 PFont robotoBlackItalic;
@@ -528,6 +580,8 @@ String[] page5Bottom = new String[3];
   page5Bottom[2] = "Room-scale";
 }
 
+String page5Title = "Information om VR";
+
 String[] page5TopText = new String[3]; 
 {
 
@@ -543,6 +597,25 @@ String[] page5BottomText = new String[3];
   page5BottomText[1] = "VR giver muligheden for at lære fra scenarier der aldrig ville være mulige eller sikrer at frestille i virkeligheden. Det skaber muligheder for at teste brugernes handlingsevner i stress-situation såsom krig, ulykker, naturkatastrofer og lign.";
   page5BottomText[2] = "Room-scale VR tillader brugeren at fysiske bevæge sig i et rum og få deres bevægelser reflekteret inde i en virtuel verden. Disse systemer tillader for en lang højere grad af indlevelse.";
 }
+
+String page6Title = "Information om førstehjælp";
+
+String[] page6Titles = new String[3]; 
+{
+
+  page6Titles[0] = "CPR";
+  page6Titles[1] = "Kontrol";
+  page6Titles[2] = "Procedurer";
+}
+
+String[] page6Text = new String[3]; 
+{
+
+  page6Text[0] = "En af de mest vigtige ting man lærer, er at kunne udøve kunstigt åndedræt, til en person i nød. Dette er gjort ved at sørge for at personen har fri luftvej, så ånder man ind i personens mund 2 gange og går i gang med hjertemassage, med en dybde på 5-6 centimeter. Dette gør man skiftevis indtil personen kommer til bevidsthed igen eller der kommer professionel hjælp.";
+  page6Text[1] = "I undervisningen lærer du dig at tage kontrol over situationen og hvad du kan gøre for at sikre dig omgivelserne omkring dig. Du har eksempelvis udstyr i din bil du kan bruge for at sikre området. Dette kan være den orange selvlysende trekant, som skal placeres 30 meter bag ved bilen, så forbikørende er opmærksomme på ulykken.";
+  page6Text[2] = "Der bliver lært en liste af trin du skal udføre på den tilskadekomne og hvordan man skal tilgå sig situationen, samt omgivelserne. Din viden om denne procedure bliver testet i en multiple choice test, i slutningen af dit undervisningsforløb.";
+}
+
 
 String button = "Tilbage";
   public void settings() {  size(1920, 1080);  smooth(8); }
