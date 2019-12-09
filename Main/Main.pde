@@ -27,6 +27,8 @@ Object RoomPageImage;
 Object FrontPageText1; 
 Object FrontPageText2; 
 Object FrontPageText3; 
+Object ScrollInform;
+
 Object VrPageText; 
 
 Object VrTitle;
@@ -134,6 +136,13 @@ void draw() {
     width, 
     height/2);
 
+  ScrollInform = new Object(
+    0, 
+    height/2 + 600 - 40 - index, 
+    width, 
+    height/2);
+
+
   FrontPageImage.drawImage(frontPageImage);
 
   FrontPageBox.drawBox(0, 0, 70, 0);
@@ -141,6 +150,8 @@ void draw() {
   FrontPageText1.drawTextCenter(frontPageText1, robotoLight180, 230);
   FrontPageText2.drawTextCenter(frontPageText2, robotoLight180, 230);
   FrontPageText3.drawTextCenter(frontPageText3, robotoLight80, 230);
+
+  ScrollInform.drawTextCenter(scrollInformText, robotoLightItalic40, 240);
 
   //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
 
