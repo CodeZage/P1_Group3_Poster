@@ -17,6 +17,7 @@ PFont robotoLight80;
 PFont robotoLight180;
 
 PFont robotoLightItalic40;
+PFont robotoLightItalic50;
 PFont robotoLightItalic80;
 
 PFont robotoBlackItalic;
@@ -79,6 +80,8 @@ String[] page5Bottom = new String[3];
   page5Bottom[2] = "Room-scale";
 }
 
+String page5Title = "Information om VR";
+
 String[] page5TopText = new String[3]; 
 {
 
@@ -95,12 +98,14 @@ String[] page5BottomText = new String[3];
   page5BottomText[2] = "Room-scale VR tillader brugeren at fysiske bevæge sig i et rum og få deres bevægelser reflekteret inde i en virtuel verden. Disse systemer tillader for en lang højere grad af indlevelse.";
 }
 
-String[] page6Title = new String[3]; 
+String page6Title = "Information om førstehjælp";
+
+String[] page6Titles = new String[3]; 
 {
 
-  page6Title[0] = "CPR";
-  page6Title[1] = "Kontrol";
-  page6Title[2] = "Procedurer";
+  page6Titles[0] = "CPR";
+  page6Titles[1] = "Kontrol";
+  page6Titles[2] = "Procedurer";
 }
 
 String[] page6Text = new String[3]; 

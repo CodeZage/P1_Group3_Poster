@@ -39,6 +39,7 @@ Object RoomPageSubTitle;
 Object LineHorizontalRoom;
 Object RoomPageText;
 
+Object Page5Title;
 Object[] Page5Top = new Object[3];
 Object[] Page5TopText = new Object[3];
 Object[] LineHorizontalTop = new Object[3];
@@ -47,6 +48,7 @@ Object[] Page5Bottom = new Object[3];
 Object[] Page5BottomText = new Object[3];
 Object[] LineHorizontalBottom = new Object[3];
 
+Object Page6Title;
 Object[] Page6Top = new Object[3];
 Object[] Page6TopText = new Object[3];
 Object[] LineHorizontalTop6 = new Object[3];
@@ -78,6 +80,7 @@ void setup() {
   robotoLight180 = createFont("Roboto-Light.ttf", 180);
 
   robotoLightItalic40 = createFont("Roboto-LightItalic.ttf", 40);
+  robotoLightItalic50 = createFont("Roboto-LightItalic.ttf", 50);
   robotoLightItalic80 = createFont("Roboto-LightItalic.ttf", 80);
 
 
@@ -268,8 +271,21 @@ void draw() {
   RoomPageImage.drawImage(roomPageImage);
 
   //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
+  
+  Page5Title = new Object(
+    width/2 - 20, 
+    height * 4.08 - index, 
+    800, 
+    300);
+
+  rectMode(CENTER);
+  Page5Title.drawTextCenter(page5Title, robotoLightItalic50, 40);
+  rectMode(CORNER);
+
+
   float page5Parralax = 1; //Set to 1 to disable parralax 
   int page5Offset = 0; //If parralax is disabled set to 0
+
 
   for (int i = 0; i < Page5Top.length; i++) {
     Page5Top[i] = new Object(100 + (i * 600), height * 4.04 - index * page5Parralax + page5Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
@@ -296,21 +312,33 @@ void draw() {
   } 
 
   //Page 6 ----------------------------------------------------------------------------------------------------------------------------------
+
+  Page6Title = new Object(
+    width/2 - 20, 
+    height * 5.14 - index, 
+    800, 
+    300);
+
+  rectMode(CENTER);
+  Page6Title.drawTextCenter(page6Title, robotoLightItalic50, 40);
+  rectMode(CORNER);
+
+
   float page6Parralax = 1; //Set to 1 to disable parralax 
   int page6Offset = 0; //If parralax is disabled set to 0
-  
-  for (int i = 0; i < Page6Top.length; i++) {
-    Page6Top[i] = new Object(100 + (i * 600), height * 5.08 - index * page6Parralax + page6Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
-    Page6TopText[i] = new Object(100+ (i * 600), height * 5.15 - index * page6Parralax + page6Offset, 450, 600);
-    LineHorizontalTop6[i] = new Object(175 + (i * 600), height * 5.15 - index * page6Parralax + page6Offset, 300, 1);
 
-    Page6Top[i].drawTextCenter(page6Title[i], robotoLight50, selectionColor);
+  for (int i = 0; i < Page6Top.length; i++) {
+    Page6Top[i] = new Object(100 + (i * 600), height * 5.1 - index * page6Parralax + page6Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
+    Page6TopText[i] = new Object(100+ (i * 600), height * 5.17 - index * page6Parralax + page6Offset, 450, 600);
+    LineHorizontalTop6[i] = new Object(175 + (i * 600), height * 5.17 - index * page6Parralax + page6Offset, 300, 1);
+
+    Page6Top[i].drawTextCenter(page6Titles[i], robotoLight50, selectionColor);
     Page6TopText[i].drawTextLeft(page6Text[i], robotoLight28, 0);
     LineHorizontalTop6[i].drawBox(20, 20, 255, 0);
     //Page5Top[i].drawBox(highlightColor, highlightColor, 100, 10);
     //Page5TopText[i].drawBox(highlightColor, highlightColor, 100, 10);
   } 
-  
+
 
   ResetButton = new Object(
     width / 2 - 125, 
