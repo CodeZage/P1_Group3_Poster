@@ -60,7 +60,7 @@ Object[] LineHorizontalTop6 = new Object[3];
 
 
 void setup() {
-  size(1920, 1080);
+  fullScreen();
   frameRate(60);
   smooth(8);
 
