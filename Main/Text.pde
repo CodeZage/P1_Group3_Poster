@@ -36,6 +36,7 @@ String frontPageText1 = "Førstehjælp";
 String frontPageText2 = "I Virtual Reality";
 String frontPageText3 = "\"Det Starter med dig\"";
 
+
 String vrText = "Virtual reality (VR) er en teknologi, der transporterer brugeren ind i en virtuel virkelighed. Det gør man oftest med et VR-headset, der består af et hjelm med et display til hvert øje, som lukker resten af verden ude. Udover display teknologien, indeholder et VR-headset næsten også altid en form for tracking-teknologi, der skal holde styr på, hvordan brugeren bevæger sig. Denne form for teknologi kan også komme i kontrollerne. På den måde kan man bevæge sig rundt i den virtuelle verden.";
 
 String vrTitleText = "Virtual Reality";
@@ -116,5 +117,5 @@ String[] page6Text = new String[3];
   page6Text[2] = "Der bliver lært en liste af trin du skal udføre på den tilskadekomne og hvordan man skal tilgå sig situationen, samt omgivelserne. Din viden om denne procedure bliver testet i en multiple choice test, i slutningen af dit undervisningsforløb.";
 }
 
-
+String read = "Læs Mere";
 String button = "Tilbage";
