@@ -184,7 +184,7 @@ public void draw() {
     600);
 
   VrPageImage.drawImage(vrPageImage);
-  VrPageText.drawBox(highlightColor, highlightColor, 100, 10);
+  VrPageText.drawBox(selectionColor, selectionColor, 150, 10);
   VrPageText.drawTextLeft(vrText, robotoLight28, 0);
 
   //Page 3 ----------------------------------------------------------------------------------------------------------------------------------
@@ -412,7 +412,7 @@ public void draw() {
   //Draws scroll distance indicator to the right of the screen. 
   fill(selectionColor);
   noStroke();
-  rect(width - margin, -margin, 5, margin / 1 + index * 1.25f / pages.length);
+  rect(width - 10, -margin, 10, margin / 1 + index * 1.25f / pages.length);
 
   //Debugging
   println(index);
