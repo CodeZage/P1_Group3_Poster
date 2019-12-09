@@ -23,7 +23,6 @@ class Object {
     }
   }
 
-
   void scrollToPoint(float point) {
     if (mouseClick == true) {
       if (index > point && index > point + 54) {
@@ -36,16 +35,22 @@ class Object {
       }
     }
   }
+  
+  void drawLine(float strokeSize) {
+    strokeWeight(strokeSize);
+    line(posX, posY, sizeX, sizeY);
+    noStroke();
+  }
 
   void drawObject(PShape vector) {
     shape(vector, posX, posY, sizeX, sizeY);
   }
 
-  void drawTextLeft(String text,PFont font, color col) {
+  void drawTextLeft(String text, PFont font, color col) {
     textAlign(LEFT);
     fill(col);
     textFont(font);
-    text(text, posX, posY + sizeY / 10, sizeX, sizeY);
+    text(text, posX + 40, posY + sizeY / 10 - 20, sizeX - 40, sizeY + 20);
   }
 
   void drawTextCenter(String text, PFont font, color col) {
