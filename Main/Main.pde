@@ -11,6 +11,9 @@ Page[] pages = new Page[6];
 Object FrontPageBox;
 Object ResetButton;
 
+Object VrButton;
+Object FirstaidButton;
+
 Object ListLineVertical; 
 Object ListLineHorizontalVr;
 Object ListLineHorizontalFirstaid;
@@ -211,6 +214,32 @@ void draw() {
   ListLineHorizontalFirstaid.drawBox(20, 20, 255, 0);
   ListLineHorizontalVr.drawBox(20, 20, 255, 0);
 
+
+/*  VrButton = new Object(
+    width / 2 - 600, 
+    height * 3 - index - 180, 
+    250, 
+    60);
+
+  FirstaidButton = new Object(
+    width / 2 + 350, 
+    height * 3 - index - 180, 
+    250, 
+    60);
+
+  VrButton.drawBox(selectionColor, highlightColor, 100, 10);
+  VrButton.drawTextCenter(read, robotoLightItalic40, 30);
+  VrButton.mouseOver();
+  VrButton.clickObject();
+  //VrButton.scrollToPointDown(0);
+
+  FirstaidButton.drawBox(selectionColor, highlightColor, 100, 10);
+  FirstaidButton.drawTextCenter(read, robotoLightItalic40, 30);
+  FirstaidButton.mouseOver();
+  FirstaidButton.clickObject();
+  //FirstaidButton.scrollToPointDown(0); */
+
+
   Citation = new Object(
     width/2, 
     height * 3.06 - index, 
@@ -271,7 +300,7 @@ void draw() {
   RoomPageImage.drawImage(roomPageImage);
 
   //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
-  
+
   Page5Title = new Object(
     width/2 - 20, 
     height * 4.08 - index, 
@@ -350,7 +379,7 @@ void draw() {
   ResetButton.drawTextCenter(button, robotoLightItalic40, 0);
   ResetButton.mouseOver();
   ResetButton.clickObject();
-  ResetButton.scrollToPoint(0);
+  ResetButton.scrollToPointUP(0);
 
 
   //Draws scroll distance indicator to the right of the screen. 

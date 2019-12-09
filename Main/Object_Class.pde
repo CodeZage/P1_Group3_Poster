@@ -23,19 +23,32 @@ class Object {
     }
   }
 
-  void scrollToPoint(float point) {
+  void scrollToPointUP(float point) {
     if (mouseClick == true) {
       if (index > point && index > point + 54) {
         index -= 216;
       }
       if (index > point && index < point + 54) {
         index -= 1;
-      } else if (index == point) {
-        mouseClick = false;
       }
+    } else if (index == point) {
+      mouseClick = false;
     }
   }
-  
+
+  void scrollToPointDown(float point) {
+    if (mouseClick == true) {
+      if (index < point && index < point + 54) {
+        index += 216;
+      }
+      if (index < point && index > point + 54) {
+        index += 1;
+      }
+    } else if (index == point) {
+      mouseClick = false;
+    }
+  }
+
   void drawLine(float strokeSize) {
     strokeWeight(strokeSize);
     line(posX, posY, sizeX, sizeY);
