@@ -46,7 +46,7 @@ String firstaidTitleText = "Normal Førstehjælp";
 
 String[] vrListText = new String[4]; 
 {
-  vrListText[0] = "Virkelig 1-til-1 oplævelse";
+  vrListText[0] = "Virkelig 1-til-1 oplevelse";
   vrListText[1] = "Inkludere sanserne";
   vrListText[2] = "Samtidig evaluering";
   vrListText[3] = "Haptisk feedback";
