@@ -87,7 +87,7 @@ void setup() {
   robotoLightItalic40 = createFont("Roboto-LightItalic.ttf", 40);
   robotoLightItalic50 = createFont("Roboto-LightItalic.ttf", 50);
   robotoLightItalic80 = createFont("Roboto-LightItalic.ttf", 80);
-
+  
 
   frontPageImage = loadImage("Images/frontImage.png");
   vrPageImage = loadImage("Images/vrImage.png");
@@ -138,7 +138,7 @@ void draw() {
 
   ScrollInform = new Object(
     0, 
-    height/2 + 600 - 40 - index, 
+    height - 150 - index, 
     width, 
     height/2);
 

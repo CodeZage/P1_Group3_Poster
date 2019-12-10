@@ -154,7 +154,7 @@ public void draw() {
 
   ScrollInform = new Object(
     0, 
-    height/2 + 600 - 40 - index, 
+    height - 150 - index, 
     width, 
     height/2);
 
@@ -662,7 +662,7 @@ String[] page6Text = new String[3];
 
 String read = "Læs Mere";
 String button = "Tilbage";
-  public void settings() {  fullScreen();  smooth(8); }
+  public void settings() {  size(1920, 1080);  smooth(8); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Main" };
     if (passedArgs != null) {
