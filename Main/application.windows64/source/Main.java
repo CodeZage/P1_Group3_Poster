@@ -14,6 +14,9 @@ import java.io.IOException;
 
 public class Main extends PApplet {
 
+//Atom test
+//Atom test 2
+
 int index = 0; //Tracks current position of the viewport
 float margin = 4;
 boolean mouseClick = false;
@@ -27,20 +30,25 @@ Page[] pages = new Page[6];
 Object FrontPageBox;
 Object ResetButton;
 
-Object ListLineVertical; 
+Object VrButton;
+Object FirstaidButton;
+
+Object ListLineVertical;
 Object ListLineHorizontalVr;
 Object ListLineHorizontalFirstaid;
 
 //Image Objects
 Object FrontPageImage;
 Object VrPageImage;
-Object RoomPageImage; 
+Object RoomPageImage;
 
 //Text Objects
-Object FrontPageText1; 
-Object FrontPageText2; 
-Object FrontPageText3; 
-Object VrPageText; 
+Object FrontPageText1;
+Object FrontPageText2;
+Object FrontPageText3;
+Object ScrollInform;
+
+Object VrPageText;
 
 Object VrTitle;
 Object FirstAidTitle;
@@ -48,7 +56,7 @@ Object[] VrList = new Object[4];
 Object[] FirstAidList = new Object[4];
 
 Object Citation;
-Object CitationName; 
+Object CitationName;
 
 Object RoomPageTitle;
 Object RoomPageSubTitle;
@@ -77,8 +85,8 @@ public void setup() {
   frameRate(60);
   
 
-  robotoBlack20 = createFont("Roboto-Black.ttf", 25); 
-  robotoBlack40 = createFont("Roboto-Black.ttf", 40); 
+  robotoBlack20 = createFont("Roboto-Black.ttf", 25);
+  robotoBlack40 = createFont("Roboto-Black.ttf", 40);
   robotoBlack80 = createFont("Roboto-Black.ttf", 80);
   robotoBlack180 = createFont("Roboto-Black.ttf", 180);
 
@@ -118,34 +126,41 @@ public void draw() {
   //Page 1 ----------------------------------------------------------------------------------------------------------------------------------
 
   FrontPageImage = new Object(
-    0, 
-    0 - index, 
-    width, 
+    0,
+    0 - index,
+    width,
     height);
 
   FrontPageText1 = new Object(
-    0, 
-    180 - index, 
-    width, 
+    0,
+    180 - index,
+    width,
     height);
 
   FrontPageText2 = new Object(
-    0, 
-    380 - 20 - index, 
-    width, 
+    0,
+    380 - 20 - index,
+    width,
     height);
 
   FrontPageText3 = new Object(
-    0, 
-    height/2 + 60 - 40 - index, 
-    width, 
+    0,
+    height/2 + 60 - 40 - index,
+    width,
     height);
 
   FrontPageBox = new Object(
-    0, 
-    280 - index, 
-    width, 
+    0,
+    280 - index,
+    width,
     height/2);
+
+  ScrollInform = new Object(
+    0,
+    height - 150 - index,
+    width,
+    height/2);
+
 
   FrontPageImage.drawImage(frontPageImage);
 
@@ -155,54 +170,56 @@ public void draw() {
   FrontPageText2.drawTextCenter(frontPageText2, robotoLight180, 230);
   FrontPageText3.drawTextCenter(frontPageText3, robotoLight80, 230);
 
+  ScrollInform.drawTextCenter(scrollInformText, robotoLightItalic40, 240);
+
   //Page 2 ----------------------------------------------------------------------------------------------------------------------------------
 
   VrPageImage = new Object(
-    0, 
-    height - index, 
-    width, 
+    0,
+    height - index,
+    width,
     height);
 
   VrPageText = new Object(
-    width - 700, 
-    height * 2 + 250 - index * 2, 
-    600, 
+    width - 700,
+    height * 2 + 250 - index * 2,
+    600,
     600);
 
   VrPageImage.drawImage(vrPageImage);
-  VrPageText.drawBox(highlightColor, highlightColor, 100, 10);
+  VrPageText.drawBox(selectionColor, selectionColor, 150, 10);
   VrPageText.drawTextLeft(vrText, robotoLight28, 0);
 
   //Page 3 ----------------------------------------------------------------------------------------------------------------------------------
 
   VrTitle = new Object(
-    -500, 
-    height * 2.12f - index, 
-    width, 
+    -500,
+    height * 2.12f - index,
+    width,
     300);
 
   FirstAidTitle = new Object(
-    480, 
-    height * 2.12f - index, 
-    width, 
+    480,
+    height * 2.12f - index,
+    width,
     300);
 
   ListLineVertical = new Object(
-    width/2 - 1, 
-    height * 2.3f - index, 
-    1, 
+    width/2 - 1,
+    height * 2.3f - index,
+    1,
     height * 0.6f);
 
   ListLineHorizontalVr = new Object(
-    200, 
-    height * 2.25f - index, 
-    540, 
+    200,
+    height * 2.25f - index,
+    540,
     1);
 
   ListLineHorizontalFirstaid = new Object(
-    width - 740, 
-    height * 2.25f - index, 
-    540, 
+    width - 740,
+    height * 2.25f - index,
+    540,
     1);
 
   for (int i = 0; i < VrList.length; i++) {
@@ -227,16 +244,42 @@ public void draw() {
   ListLineHorizontalFirstaid.drawBox(20, 20, 255, 0);
   ListLineHorizontalVr.drawBox(20, 20, 255, 0);
 
+
+/*  VrButton = new Object(
+    width / 2 - 600,
+    height * 3 - index - 180,
+    250,
+    60);
+
+  FirstaidButton = new Object(
+    width / 2 + 350,
+    height * 3 - index - 180,
+    250,
+    60);
+
+  VrButton.drawBox(selectionColor, highlightColor, 100, 10);
+  VrButton.drawTextCenter(read, robotoLightItalic40, 30);
+  VrButton.mouseOver();
+  VrButton.clickObject();
+  //VrButton.scrollToPointDown(0);
+
+  FirstaidButton.drawBox(selectionColor, highlightColor, 100, 10);
+  FirstaidButton.drawTextCenter(read, robotoLightItalic40, 30);
+  FirstaidButton.mouseOver();
+  FirstaidButton.clickObject();
+  //FirstaidButton.scrollToPointDown(0); */
+
+
   Citation = new Object(
-    width/2, 
-    height * 3.06f - index, 
-    800, 
+    width/2,
+    height * 3.06f - index,
+    800,
     300);
 
   CitationName = new Object(
-    width/2, 
-    height * 3.09f - index, 
-    600, 
+    width/2,
+    height * 3.09f - index,
+    600,
     300);
 
   rectMode(CENTER);
@@ -246,38 +289,38 @@ public void draw() {
 
 
   //Page 4 ----------------------------------------------------------------------------------------------------------------------------------
-  float page4Parralax = 1.8f; //Set to 1 to disable parralax 
+  float page4Parralax = 1.8f; //Set to 1 to disable parralax
   int page4Offset = 2600; //If parralax is disabled set to 0
 
   RoomPageTitle = new Object(
-    margin * 10, 
-    height * 3.05f - index * page4Parralax + page4Offset, 
-    width / 2 - 120, 
-    height / 2); 
+    margin * 10,
+    height * 3.05f - index * page4Parralax + page4Offset,
+    width / 2 - 120,
+    height / 2);
 
   RoomPageSubTitle = new Object(
-    margin * 10, 
-    height * 3.15f - index * page4Parralax + page4Offset, 
-    width / 2 - 120, 
-    height / 2); 
+    margin * 10,
+    height * 3.15f - index * page4Parralax + page4Offset,
+    width / 2 - 120,
+    height / 2);
 
   LineHorizontalRoom = new Object(
-    margin * 21, 
-    height * 3.25f - index * page4Parralax + page4Offset, 
-    540, 
+    margin * 21,
+    height * 3.25f - index * page4Parralax + page4Offset,
+    540,
     1);
 
   RoomPageText = new Object(
-    margin * 10, 
-    height * 3.25f - index * page4Parralax + page4Offset, 
-    width / 2 - 120, 
-    height-400); 
+    margin * 10,
+    height * 3.25f - index * page4Parralax + page4Offset,
+    width / 2 - 120,
+    height-400);
 
   RoomPageImage = new Object(
-    width / 2 - margin * 2, 
-    height * 3.25f + margin * 2 - index, 
-    width / 2 - margin * 10, 
-    height / 2 - margin * 2); 
+    width / 2 - margin * 2,
+    height * 3.25f + margin * 2 - index,
+    width / 2 - margin * 10,
+    height / 2 - margin * 2);
 
   RoomPageTitle.drawTextLeft(roomTitleText, robotoLight80, selectionColor);
   RoomPageSubTitle.drawTextLeft(roomSubTitleText, robotoLightItalic40, 40);
@@ -287,11 +330,11 @@ public void draw() {
   RoomPageImage.drawImage(roomPageImage);
 
   //Page 5 ----------------------------------------------------------------------------------------------------------------------------------
-  
+
   Page5Title = new Object(
-    width/2 - 20, 
-    height * 4.08f - index, 
-    800, 
+    width/2 - 20,
+    height * 4.08f - index,
+    800,
     300);
 
   rectMode(CENTER);
@@ -299,7 +342,7 @@ public void draw() {
   rectMode(CORNER);
 
 
-  float page5Parralax = 1; //Set to 1 to disable parralax 
+  float page5Parralax = 1; //Set to 1 to disable parralax
   int page5Offset = 0; //If parralax is disabled set to 0
 
 
@@ -313,7 +356,7 @@ public void draw() {
     LineHorizontalTop[i].drawBox(20, 20, 255, 0);
     //Page5Top[i].drawBox(highlightColor, highlightColor, 100, 10);
     //Page5TopText[i].drawBox(highlightColor, highlightColor, 100, 10);
-  } 
+  }
 
   for (int i = 0; i < Page5Bottom.length; i++) {
     Page5Bottom[i] = new Object(100 + (i * 600), height * 4.45f - index * page5Parralax + page5Offset, 450, 100); //Creates all objects in a sequential order for easy organisation.
@@ -325,14 +368,14 @@ public void draw() {
     Page5BottomText[i].drawTextLeft(page5BottomText[i], robotoLight28, 0);
     //Page5Top[i].drawBox(highlightColor, highlightColor, 100, 10);
     //Page5BottomText[i].drawBox(highlightColor, highlightColor, 100, 10);
-  } 
+  }
 
   //Page 6 ----------------------------------------------------------------------------------------------------------------------------------
 
   Page6Title = new Object(
-    width/2 - 20, 
-    height * 5.14f - index, 
-    800, 
+    width/2 - 20,
+    height * 5.14f - index,
+    800,
     300);
 
   rectMode(CENTER);
@@ -340,7 +383,7 @@ public void draw() {
   rectMode(CORNER);
 
 
-  float page6Parralax = 1; //Set to 1 to disable parralax 
+  float page6Parralax = 1; //Set to 1 to disable parralax
   int page6Offset = 0; //If parralax is disabled set to 0
 
   for (int i = 0; i < Page6Top.length; i++) {
@@ -353,26 +396,26 @@ public void draw() {
     LineHorizontalTop6[i].drawBox(20, 20, 255, 0);
     //Page5Top[i].drawBox(highlightColor, highlightColor, 100, 10);
     //Page5TopText[i].drawBox(highlightColor, highlightColor, 100, 10);
-  } 
+  }
 
 
   ResetButton = new Object(
-    width / 2 - 125, 
-    height * 6 - index - 180, 
-    250, 
+    width / 2 - 125,
+    height * 6 - index - 180,
+    250,
     60);
 
   ResetButton.drawBox(selectionColor, highlightColor, 100, 10);
   ResetButton.drawTextCenter(button, robotoLightItalic40, 0);
   ResetButton.mouseOver();
   ResetButton.clickObject();
-  ResetButton.scrollToPoint(0);
+  ResetButton.scrollToPointUP(0);
 
 
-  //Draws scroll distance indicator to the right of the screen. 
+  //Draws scroll distance indicator to the right of the screen.
   fill(selectionColor);
   noStroke();
-  rect(width - margin, -margin, 5, margin / 1 + index * 1.25f / pages.length);
+  rect(width - 10, -margin, 10, margin / 1 + index * 1.25f / pages.length);
 
   //Debugging
   println(index);
@@ -417,19 +460,20 @@ class Object {
     }
   }
 
-  public void scrollToPoint(float point) {
+  public void scrollToPointUP(float point) {
     if (mouseClick == true) {
       if (index > point && index > point + 54) {
         index -= 216;
       }
       if (index > point && index < point + 54) {
         index -= 1;
-      } else if (index == point) {
-        mouseClick = false;
       }
+    } 
+    if (index == point) {
+      mouseClick = false;
     }
   }
-  
+
   public void drawLine(float strokeSize) {
     strokeWeight(strokeSize);
     line(posX, posY, sizeX, sizeY);
@@ -532,18 +576,21 @@ PFont robotThinItalic;
 
 //------------------------------------------------------------------------------------------------------------------------------------
 
-String frontPageText1 = "Førstehælp";
+String frontPageText1 = "Førstehjælp";
 String frontPageText2 = "I Virtual Reality";
-String frontPageText3 = "\"Det Starter med dig\"";
+String frontPageText3 = "\"Det starter med dig\"";
 
-String vrText = "Virtual reality (VR) er en teknologi, der transporterer brugeren ind i en virtuel virkelighed. Det gør man oftest med et VR-headset, der består af et display til hvert øje, og som lukke rresten af verden ude. Udover display teknologien, indeholder et VR-headset næsten også altid en form for tracking-teknologi, der skal holde styr på, hvordan brugeren bevæger sig. Denne form for teknologi kan også komme i kontrollerne. På den måde kan man både gestikulere og bevæge sig rundt i den virtuelle verden.";
+String scrollInformText = "Brug scroll for at bevæge skærmen";
+
+
+String vrText = "Virtual reality (VR) er en teknologi, der transporterer brugeren ind i en virtuel virkelighed. Det gør man oftest med et VR-headset, der består af en hjelm med et display til hvert øje, som lukker resten af verden ude. Udover display teknologien, indeholder et VR-headset næsten også altid en form for tracking-teknologi, der skal holde styr på, hvordan brugeren bevæger sig. Denne form for teknologi kan også komme i kontrollerne. På den måde kan man bevæge sig rundt i den virtuelle verden.";
 
 String vrTitleText = "Virtual Reality";
 String firstaidTitleText = "Normal Førstehjælp";
 
 String[] vrListText = new String[4]; 
 {
-  vrListText[0] = "Virkelig 1-til-1 oplævelse";
+  vrListText[0] = "Virkelig 1-til-1 oplevelse";
   vrListText[1] = "Inkludere sanserne";
   vrListText[2] = "Samtidig evaluering";
   vrListText[3] = "Haptisk feedback";
@@ -558,11 +605,11 @@ String[] firstaidListText = new String[4];
 }
 
 String citationText = "\"Hvis hjernen kan genkende nogle af de scenarier som den har været i, så vil den faktisk kunne agere ud fra det\"";
-String citationNameText = "- Teis Krag"; 
+String citationNameText = "- Teis Krag, Falckredder."; 
 
 String roomTitleText = "Koncept";
 String roomSubTitleText = "En mulighed for fremtiden";
-String imgText = "Evnen til at udføre førstehjælp er en utrolig vigtig færdighed. At udføre korrekt førstehjælp er tit den største forudsætning for overlevelse i tilfælde af uheld. Evnen til at udføre førsthælp i krisesituationer kommer alle i samfundet til gavn. I Danmark er den mest hyppige førstehælpstræning modtaget under optagelsen af et kørekort. Virtual Reality (VR) tilbyder en stor mængde muligheder for at lære mere effektivt. Der er beviser for at VR can tillade folk at reagere og agere realistisk is simlered scenarier. Det betyder at VR giver dig mulighed for at lære førstehælp i simulerede situationer der mere ligner dem man eventuelt kan havne i den virkelige verden. Der er også beviser for at danskere er nogen af de mest uforberedte på at udøve førstehjælp. Det kan VR teknologi hjælpe med at rette op på. Fremtiden for undervisning i simulerede virtuelle omgivelser ser lys ud.";
+String imgText = "Evnen til at udføre førstehjælp er en utrolig vigtig færdighed. At udføre korrekt førstehjælp er tit den største forudsætning for overlevelse i tilfælde af uheld. Evnen til at udføre førstehjælp i krise-situationer, kommer alle i samfundet til gavn. I Danmark er den mest hyppige førstehjælpstræning modtaget under optagelsen af et kørekort. Virtual Reality (VR) tilbyder en stor mængde muligheder for at lære mere effektivt. Der er beviser for at VR can tillade folk at reagere og agere realistisk i simulerede scenarier. Det betyder, at VR giver dig mulighed for at lære førstehælp i simulerede situationer, der ligner mere dem man eventuelt kan havne i, i den virkelige verden. Der er også beviser for, at danskere er nogen af de mest uforberedte til at udøve førstehjælp. Det kan VR teknologi hjælpe med at rette op på. Fremtiden for undervisning i simulerede virtuelle omgivelser ser lys ud.";
 
 
 
@@ -585,17 +632,17 @@ String page5Title = "Information om VR";
 String[] page5TopText = new String[3]; 
 {
 
-  page5TopText[0] = "Vejen til at opnå fuld realisme i en virtuel oplvelse kan kune gøres ved hælp af realistisk lyd. Et realistisk krisescenarie har mange forskellige lyde man skal være opmærksom på. Derfor er korrekt gengivelse utrolig vigtig.";
-  page5TopText[1] = "Mennesket har en stor mængde af forskellige sanser. Der er beviser for at brugen af flere sanser under læring giver bedre tibagekaldelse af materialet. Et VR system kan derfor tvinge os til at bruge flere sanser.";
-  page5TopText[2] = "Berørings sansen kan stimuleres i et virtuelt miljø igennem haptisk feedback. Specielt udstyr som HaptX hansken kan stimulere denne sans ved hjælp af specielt bygget teknologi.";
+  page5TopText[0] = "Vejen til at opnå fuld realisme i en virtuel oplvelse, kan kunne gøres ved hjælp af realistisk lyd. Et realistisk krisescenarie har mange forskellige lyde man skal være opmærksom på. Derfor er korrekt gengivelse utrolig vigtig.";
+  page5TopText[1] = "Mennesket har en stor mængde af forskellige sanser. Der er beviser for, at brugen af flere sanser under læring giver bedre tibagekaldelse af materialet. Et VR system kan derfor tvinge os til at bruge flere sanser.";
+  page5TopText[2] = "Berørings sansen kan stimuleres i et virtuelt miljø igennem haptisk feedback. Specielt udstyr som HaptX hansken, kan stimulere denne sans ved hjælp af specielt bygget teknologi.";
 }
 
 String[] page5BottomText = new String[3]; 
 {
 
-  page5BottomText[0] = "En vigtig faktor for at fremkalde realistisk opførsel i VR er at man befinder sig i realistiske omgivelser. Innovationer i grafik-teknologi som real-time raytracing og 3D scanninger af virkelige objecter baner vejen for ultra-realistiske virtuelle miljøer.";
-  page5BottomText[1] = "VR giver muligheden for at lære fra scenarier der aldrig ville være mulige eller sikrer at frestille i virkeligheden. Det skaber muligheder for at teste brugernes handlingsevner i stress-situation såsom krig, ulykker, naturkatastrofer og lign.";
-  page5BottomText[2] = "Room-scale VR tillader brugeren at fysiske bevæge sig i et rum og få deres bevægelser reflekteret inde i en virtuel verden. Disse systemer tillader for en lang højere grad af indlevelse.";
+  page5BottomText[0] = "En vigtig faktor for at fremkalde realistisk opførsel i VR er, at man befinder sig i forvejen i realistiske omgivelser. Innovationer i grafik-teknologi som real-time ray-tracing og 3D-scanninger af virkelige objekter, baner vejen for ultra-realistiske virtuelle miljøer.";
+  page5BottomText[1] = "VR giver muligheden for, at lære fra scenarier der aldrig ville være mulige, eller sikrer, at man kan arbejde i et sikkert miljø. Det skaber muligheder for, at teste brugernes handlingsevner i stressende situationer såsom krig, ulykker, naturkatastrofer og lign.";
+  page5BottomText[2] = "Room-scale VR tillader brugeren, at fysiske bevæge sig i et rum og få deres bevægelser reflekteret inde i en virtuel verden. Disse systemer tillader for en lang højere grad af indlevelse.";
 }
 
 String page6Title = "Information om førstehjælp";
@@ -611,14 +658,14 @@ String[] page6Titles = new String[3];
 String[] page6Text = new String[3]; 
 {
 
-  page6Text[0] = "En af de mest vigtige ting man lærer, er at kunne udøve kunstigt åndedræt, til en person i nød. Dette er gjort ved at sørge for at personen har fri luftvej, så ånder man ind i personens mund 2 gange og går i gang med hjertemassage, med en dybde på 5-6 centimeter. Dette gør man skiftevis indtil personen kommer til bevidsthed igen eller der kommer professionel hjælp.";
-  page6Text[1] = "I undervisningen lærer du dig at tage kontrol over situationen og hvad du kan gøre for at sikre dig omgivelserne omkring dig. Du har eksempelvis udstyr i din bil du kan bruge for at sikre området. Dette kan være den orange selvlysende trekant, som skal placeres 30 meter bag ved bilen, så forbikørende er opmærksomme på ulykken.";
+  page6Text[0] = "En af de mest vigtige ting man lærer, er at kunne udøve kunstigt åndedræt, til en person i nød. Dette er gjort ved at sørge for, at personen har fri luftvej, så ånder man ind i personens mund 2 gange og går i gang med hjertemassage, med en dybde på 5-6 centimeter. Dette gør man skiftevis indtil personen kommer til bevidsthed igen, eller indtil der kommer professionel hjælp.";
+  page6Text[1] = "I undervisningen lærer du dig at tage kontrol over situationen og hvad du kan gøre for, at sikre dig omgivelserne omkring dig. Du har eksempelvis udstyr i din bil du kan bruge for at sikre området. Dette kan være den orange selvlysende trekant, som skal placeres 30 meter bag ved bilen, så forbipasserende er opmærksomme på ulykken.";
   page6Text[2] = "Der bliver lært en liste af trin du skal udføre på den tilskadekomne og hvordan man skal tilgå sig situationen, samt omgivelserne. Din viden om denne procedure bliver testet i en multiple choice test, i slutningen af dit undervisningsforløb.";
 }
 
-
+String read = "Læs Mere";
 String button = "Tilbage";
-  public void settings() {  size(1920, 1080);  smooth(8); }
+  public void settings() {  fullScreen();  smooth(8); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Main" };
     if (passedArgs != null) {
